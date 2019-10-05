@@ -11,14 +11,23 @@ function createSecondMenu(option){
         let optionOneValue = "Mountains";
         let optionTwoValue = "Islands";
         let values = [optionOneValue, optionTwoValue];
-        createOptionNode(values)
+        createOptionNode(option, values)
     }
     else if (option == "cities"){
-        console.log("You picked cities");
+        let optionOneValue = "Arabic";
+        let optionTwoValue = "Spanish";
+        let values = [optionOneValue, optionTwoValue];
+        createOptionNode(option, values)
     }
 }
 
-function createOptionNode(values){
+function createThirdMenu(){
+    let select = document.getElementById("second_choice");
+    let selectedOption = select.options[select.selectedIndex].value;
+    console.log("You had selected:", selectedOption);
+}
+
+function createOptionNode(option, values){
     console.log("The next option is:", option);
   
     let optionsDiv = document.getElementById("options_div");
@@ -28,25 +37,17 @@ function createOptionNode(values){
 
     values.forEach(function(value){
         let optionEle = document.createElement("option")
+        let optionTextNode = document.createTextNode(value);
+        optionEle.setAttribute("value", value);
+        optionEle.append(optionTextNode);
+        selectEle.appendChild(optionEle);
     })
-
-    let optionOneEle = document.createElement("option");
-    let optionTwoEle = document.createElement("option");
-    let optionOneTextEle = document.createTextNode("Arabic");
-    let optionTwoTextEle = document.createTextNode("Spanish");
-    optionOneEle.setAttribute("value", "arabic");
-    optionTwoEle.setAttribute("value", "spanish");
-    optionOneEle.append(optionOneTextEle);
-    optionTwoEle.append(optionTwoTextEle);
 
     divEle.setAttribute("id", "second_div");
     labelEle.setAttribute("for", "language");
     selectEle.setAttribute("name", "second_choice");
     selectEle.setAttribute("id", "second_choice");
-    
-
-    selectEle.appendChild(optionOneEle);
-    selectEle.appendChild(optionTwoEle);
+    selectEle.addEventListener("change", createThirdMenu);
     labelEle.appendChild(selectEle);
     divEle.appendChild(labelEle);
     optionsDiv.appendChild(divEle);
