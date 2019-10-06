@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body>
+<body onload="fetchData();">
     <div id="options_div">
         <div id="first_div">
             <label for="What do you prefer?">
-                <select name="first_choice" id="first_choice" onchange="setChoice(this.id);">
-                    <option  value="cities">Cities</option>
-                    <option value="nature">Nature</option>
+                <select name="first_choice" id="first_choice" onchange="processFirstChoice(this.id);">
+                    <option  value="Cities">Cities</option>
+                    <option value="Nature">Nature</option>
                 </select>
             </label> 
         </div>  
