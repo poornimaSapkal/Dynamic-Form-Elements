@@ -1,0 +1,14 @@
+{
+    "first_choice":{
+        "Cities" : [ "Arabic","Spanish"],
+        "Nature" : ["Mountains","Islands"]
+    },
+    "second_choide":{
+        "Arabic" : ["Ancient Cities","New Cities"],
+        "Spanish" : ["Humanities","Science"]
+    },
+    "third_choice":{
+        "Mountains" : ["South America", "Asia"],
+        "Islands" : ["Caribbean", "South Pacific"]
+    }
+}
