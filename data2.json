@@ -1,14 +1,32 @@
 {
     "first_choice":{
-        "Cities" : [ "Arabic","Spanish"],
-        "Nature" : ["Mountains","Islands"]
+        "options":{
+            "Cities" : [ "Arabic","Spanish"],
+            "Nature" : ["Mountains","Islands"]
+        },
+        "choice_number":2,
+        "next_div": "second_choice"
     },
-    "second_choide":{
-        "Arabic" : ["Ancient Cities","New Cities"],
-        "Spanish" : ["Humanities","Science"]
+    "second_choice":{
+        "options":{
+            "Arabic" : ["Ancient Cities","New Cities"],
+            "Spanish" : ["Humanities","Science"],
+            "Mountains" : ["South America", "Asia"],
+            "Islands" : ["Caribbean", "South Pacific"]
+        },
+        "choice_number":3,
+        "next_div": "third_choice"
     },
-    "third_choice":{
-        "Mountains" : ["South America", "Asia"],
-        "Islands" : ["Caribbean", "South Pacific"]
+
+    "result":{
+        "Ancient Cities":"You had picked ancient cities",
+        "New Cities": "You had picked new cities",
+        "Humanities": "You had picked humanities",
+        "Science": "You had picked Science",
+        "South America":"You had picked SA",
+        "Asia":"You had picked asia",
+        "Caribbean": "You had picked carribbean",
+        "South Pacific":"South pacific!!!"
+
     }
 }

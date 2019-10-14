@@ -13,6 +13,7 @@ function handleHttpResponse(){
     }
 }
 function processFirstChoice(id) {
+    console.log("info::",info)
     //clear all divs that are below this div 
     let select = document.getElementById("first_choice");
     let selectedOption = select.value;
@@ -63,7 +64,6 @@ function processSecondChoice(){
 function deleteFollowingDivs(){
     let currentNumberOfChoices = localStorage.getItem("current_choice_number");
     if (currentNumberOfChoices == "first_choice_made"){
-        //delete second_div and third_div
         try{
             let secondDiv = document.getElementById("second_div");
             secondDiv.parentNode.removeChild(secondDiv);
