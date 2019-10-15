@@ -1,4 +1,9 @@
 {
+    "initial_choice" : {
+        "options" : ["Cities", "Natures"],
+        "next_div" : "first_choice",
+        "choice_number":1
+    },
     "first_choice":{
         "options":{
             "Cities" : [ "Arabic","Spanish"],
@@ -15,18 +20,21 @@
             "Islands" : ["Caribbean", "South Pacific"]
         },
         "choice_number":3,
-        "next_div": "third_choice"
+        "next_div": "result"
     },
 
     "result":{
-        "Ancient Cities":"You had picked ancient cities",
-        "New Cities": "You had picked new cities",
-        "Humanities": "You had picked humanities",
-        "Science": "You had picked Science",
-        "South America":"You had picked SA",
-        "Asia":"You had picked asia",
-        "Caribbean": "You had picked carribbean",
-        "South Pacific":"South pacific!!!"
-
+        "answers": {
+            "Ancient Cities":"You had picked ancient cities",
+            "New Cities": "You had picked new cities",
+            "Humanities": "You had picked humanities",
+            "Science": "You had picked Science",
+            "South America":"You had picked SA",
+            "Asia":"You had picked asia",
+            "Caribbean": "You had picked carribbean",
+            "South Pacific":"South pacific!!!"
+        },
+        "choice_number":4     
     }
+    
 }

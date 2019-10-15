@@ -1,6 +1,6 @@
 let http = new XMLHttpRequest();
-let number_of_choices_made = 0;
 let info;
+
 function fetchData(){   
     http.open("GET", "data2.json", true);
     http.setRequestHeader('Accept', 'application/json');
@@ -14,17 +14,14 @@ function handleHttpResponse(){
     }
 }
 
-function processChoice(id){
-    deleteDivs();
-    number_of_choices_made = number_of_choices_made + 1;
+function processChoice(id){   
+    deleteDivs(info[id].choice_number);
     let which_choice = id // first_choice, second_choice, third_choice
     let select = document.getElementById(id);
     let selectedOption = select.value;
     localStorage.setItem("choice", selectedOption);
-    
-    console.log("number_of_choices_made:", number_of_choices_made, "Object.keys:", Object.keys(info).length);
-    if(number_of_choices_made == Object.keys(info).length){
-        console.log("equal")
+    //console.log("id:", id)
+    if(id == "result"){
         showAnswers();
     } else {
         createSelect(which_choice);
@@ -72,24 +69,21 @@ function createSelect(id){
 
 function showAnswers(){
     let choice = localStorage.getItem("choice");
-    let answer = info["result"][choice];
+    let answer = info["result"]["answers"][choice];
     console.log(answer); 
 }
 
-function deleteDivs(){
-    // if 1, delete 1:
-    // if 2 delete 2:
-    console.log("in delete function");
-    console.log("current_choice:", current_choice_number);
-        for(i=(current_choice_number+1); i<=Object.keys(info).length; i++){
-            try{
-                let divEle = document.getElementById(i);
-                console.log("divEle:", divEle, "i:", i);
-                divEle.remove();
-            } catch(e){
-                console.log("Divs don't exist");
-            }
-    }
+function deleteDivs(current_id){
+    //if id is greater than id that is passed delete it 
+    let allDivs = document.querySelectorAll("div");
+    allDivs.forEach(function(div){
+        let id = div.getAttribute("id")
+        console.log("current_id", current_id,"id of div:", parseInt(id));
+        if(parseInt(id) >= current_id){
+            console.log("Removing this div with id:", id)
+            div.remove();
+        }
+    })
 }
 
 
