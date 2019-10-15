@@ -6,6 +6,7 @@ function fetchData(){
     http.setRequestHeader('Accept', 'application/json');
     http.onreadystatechange = handleHttpResponse;
     http.send(null);
+    createFirstDiv();
 }
 
 function handleHttpResponse(){
@@ -14,22 +15,39 @@ function handleHttpResponse(){
     }
 }
 
+function createFirstDiv(){
+    setTimeout(function(){
+        processChoice("initial_choice")
+    },100);
+    
+}
+
+
+
 function processChoice(id){   
     deleteDivs(info[id].choice_number);
     let which_choice = id // first_choice, second_choice, third_choice
     let select = document.getElementById(id);
-    let selectedOption = select.value;
-    localStorage.setItem("choice", selectedOption);
+    let selectedOption;
+    if(select){
+        selectedOption = select.value;
+        localStorage.setItem("choice", selectedOption);
+    } else {
+        localStorage.setItem("choice", "nothing");
+    }
+    
     //console.log("id:", id)
     if(id == "result"){
         showAnswers();
+    } else if (id == "initial_choice"){
+        createSelect(which_choice, info[id]["options"]);
     } else {
-        createSelect(which_choice);
+        createSelect(which_choice, info[id]["options"][selectedOption])
     }
     
 }
 
-function createSelect(id){
+function createSelect(id, options){
     let which_choice = id; // first_choice, second_choice, third_choice
     
     let optionDiv = document.getElementById("options_div"); //the child will be appended to this div
@@ -42,7 +60,7 @@ function createSelect(id){
     selectEle.setAttribute("id", info[id].next_div);
 
     let choice = localStorage.getItem("choice");
-    let options = info[id]["options"][choice];
+    // let options = info[id]["options"][choice];
 
     options.forEach(function(value){
         let optionEle = document.createElement("option")
@@ -59,8 +77,7 @@ function createSelect(id){
     optionEle.append(optionTextNode);
     selectEle.appendChild(optionEle);
     selectEle.addEventListener("change", function(){
-        processChoice(info[id].next_div);
-    
+        processChoice(info[id].next_div, );  
     })
     divEle.append(selectEle);
     optionDiv.appendChild(divEle);
@@ -78,9 +95,7 @@ function deleteDivs(current_id){
     let allDivs = document.querySelectorAll("div");
     allDivs.forEach(function(div){
         let id = div.getAttribute("id")
-        console.log("current_id", current_id,"id of div:", parseInt(id));
         if(parseInt(id) >= current_id){
-            console.log("Removing this div with id:", id)
             div.remove();
         }
     })

@@ -1,6 +1,6 @@
 {
     "initial_choice" : {
-        "options" : ["Cities", "Natures"],
+        "options" : ["Cities", "Nature"],
         "next_div" : "first_choice",
         "choice_number":1
     },
