@@ -91,7 +91,7 @@ function showAnswers(){
     let divEle = document.createElement("div");
     divEle.setAttribute("id", info["result"].choice_number)
     let heEle = document.createElement("h2");
-    let text = document.createTextNode(`you'll fall in love with ${answer}`);
+    let text = document.createTextNode(`Perfect! You're going to love ${answer} !`);
     heEle.append(text);
     divEle.append(heEle);
     mainDiv.append(divEle);
