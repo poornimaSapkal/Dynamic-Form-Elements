@@ -87,6 +87,14 @@ function createSelect(id, options){
 function showAnswers(){
     let choice = localStorage.getItem("choice");
     let answer = info["result"]["answers"][choice];
+    let mainDiv = document.getElementById("options_div");
+    let divEle = document.createElement("div");
+    divEle.setAttribute("id", info["result"].choice_number)
+    let heEle = document.createElement("h2");
+    let text = document.createTextNode(`you'll fall in love with ${answer}`);
+    heEle.append(text);
+    divEle.append(heEle);
+    mainDiv.append(divEle);
     console.log(answer); 
 }
 
@@ -100,5 +108,3 @@ function deleteDivs(current_id){
         }
     })
 }
-
-

@@ -1,8 +1,0 @@
-{
-    "Cities" : [ "Arabic","Spanish"],
-    "Nature" : ["Mountains","Islands"],
-    "Arabic" : ["Ancient Cities","New Cities"],
-    "Spanish" : ["Humanities","Science"],
-    "Mountains" : ["South America", "Asia"],
-    "Islands" : ["Caribbean", "South Pacific"]
-}
