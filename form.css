@@ -1,5 +1,5 @@
 select{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 body {
     text-align: center;
@@ -26,7 +26,7 @@ h1 {
   }
 
 
-h3,h2 {
+h3,h2, label {
     text-align: center;
     color: #e2e2e2;
     font-family: 'Source Code Pro', monospace;
@@ -37,19 +37,22 @@ h3,h2 {
 select {
     width: 406px;
     height: 32px;
-    background-color: #e2e2e2;
-    font-family: SourceCodePro;
-    font-size: 25px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
+    font-size: 20px;
+    font-weight: bold;
     letter-spacing: 0.6px;
-    color: #000000;
-  }
+    color: #CD853F;
+}
 
-  #options_div{
-      font-family: 'Times New Roman', Times, serif;
+option {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+  .changeColor {
+      color: black;
+      background-color: #f75a6a;
+      font-family: SourceCodePro;
+      border: solid 1px #e2e2e2;
   }
 
   #heart_div{
@@ -59,7 +62,7 @@ select {
         height: 60px;
         text-align: center;
         font-size: 60px;
-        font-weight: normal;
+        font-weight: bold;
         font-style: normal;
         font-stretch: normal;
         line-height: normal;

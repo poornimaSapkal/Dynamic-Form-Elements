@@ -22,8 +22,6 @@ function createFirstDiv(){
     
 }
 
-
-
 function processChoice(id){   
     deleteDivs(info[id].choice_number);
     let which_choice = id // first_choice, second_choice, third_choice
@@ -58,17 +56,28 @@ function createSelect(id, options){
     let selectEle = document.createElement("select");
     selectEle.setAttribute("name", info[id].next_div);
     selectEle.setAttribute("id", info[id].next_div);
+    selectEle.setAttribute("class", "changeColor");
 
     let choice = localStorage.getItem("choice");
     // let options = info[id]["options"][choice];
-
+    let question = "Do you prefer ";
     options.forEach(function(value){
         let optionEle = document.createElement("option")
         let optionTextNode = document.createTextNode(value);
         optionEle.setAttribute("value", value);
         optionEle.append(optionTextNode);
         selectEle.appendChild(optionEle);
+        question = question + value + " or ";
+
     });
+    // create a label and append the text node
+
+    let label = document.createElement("label");
+    label.setAttribute("for", info[id].next_div);
+    
+    let questionNode = document.createTextNode((question.slice(0, question.length-4) + "?"));
+    label.append(questionNode);
+
 
     let optionEle = document.createElement("option")
     let optionTextNode = document.createTextNode("Make a choice");
@@ -79,7 +88,18 @@ function createSelect(id, options){
     selectEle.addEventListener("change", function(){
         processChoice(info[id].next_div, );  
     })
+    divEle.append(label);
+
+    let dotsHeader = document.createElement("h2");
+    let dots = document.createTextNode("...");
+    dotsHeader.append(dots);
+
+    //add br 
+    let breakEle = document.createElement("br");
+    divEle.append(breakEle);
+    
     divEle.append(selectEle);
+    divEle.append(dotsHeader);
     optionDiv.appendChild(divEle);
 
 }
