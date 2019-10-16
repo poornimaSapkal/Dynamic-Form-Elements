@@ -59,7 +59,7 @@ function createSelect(id, options){
     selectEle.setAttribute("class", "changeColor");
 
     let choice = localStorage.getItem("choice");
-    // let options = info[id]["options"][choice];
+
     let question = "Do you prefer ";
     options.forEach(function(value){
         let optionEle = document.createElement("option")
