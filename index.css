@@ -11,7 +11,7 @@ ul {
 }
 
 li{
-    padding: 20px;
+    padding: 10px;
 }
 
 h2 {
@@ -24,8 +24,8 @@ h2 {
 
 
 h1 {
-    display: inline-block;
-    width: 697px;
+    display: inline;
+    width : 697px;
     height: 160px;
     font-family: 'Playfair Display', serif;
     font-size: 60px;
@@ -45,11 +45,12 @@ label {
     font-family: 'Source Code Pro', monospace;
     font-weight: normal;
     font-style: normal;
+    font-size: 20px;
 
 }
 
 input {
-    margin-left: 50px;
+    margin-left: 10px;
     border-radius: 2px;
     width: 250px;
     color: black;
@@ -70,16 +71,17 @@ button {
 }
 
 #form{
-    padding-right: 30px;
+    padding-top: 40px;
+}
+
+::placeholder {
+    color:gray;
 }
 
 
 #heart_div{
     text-align: center;
     display: inline-block;
-    width: 57px;
-    height: 60px;
-    font-size: 60px;
     color: #e2e2e2;
 }
 
