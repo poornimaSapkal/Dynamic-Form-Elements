@@ -25,14 +25,14 @@
 
     "result":{
         "answers": {
-            "Ancient Cities":"You had picked ancient cities",
-            "New Cities": "You had picked new cities",
-            "Humanities": "You had picked humanities",
-            "Science": "You had picked Science",
-            "South America":"You had picked SA",
-            "Asia":"You had picked asia",
-            "Caribbean": "You had picked carribbean",
-            "South Pacific":"South pacific!!!"
+            "Ancient Cities":"Middle East Studies",
+            "New Cities": "RIT Dubai - Direct Enroll",
+            "Humanities": "Advanced Liberal Arts- Barcelona",
+            "Science": "Santiago - Health Studies",
+            "South America":"a semester in Cusco- Universidad San Ignacio Loyola",
+            "Asia":"Big Cats of the Himalayas: Tracking & Conservation",
+            "Caribbean": "Marine Resource Studies",
+            "South Pacific":"Protecting the Phoenix Islands"
         },
         "choice_number":4     
     }

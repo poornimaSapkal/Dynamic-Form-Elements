@@ -1,4 +1,5 @@
 let http = new XMLHttpRequest();
+let userChoices = [];
 let info;
 
 function fetchData(){   
@@ -59,7 +60,7 @@ function createSelect(id, options){
     selectEle.setAttribute("class", "changeColor");
 
     let choice = localStorage.getItem("choice");
-    localStorage.setItem(which_choice, choice);
+    userChoices[info[id].choice_number]=(choice);
 
     let question = "Do you prefer ";
     options.forEach(function(value){
@@ -106,17 +107,27 @@ function createSelect(id, options){
 }
 
 function showAnswers(){
+    createAllOptionsNode()
     let choice = localStorage.getItem("choice");
     let answer = info["result"]["answers"][choice];
     let mainDiv = document.getElementById("options_div");
     let divEle = document.createElement("div");
     divEle.setAttribute("id", info["result"].choice_number)
     let heEle = document.createElement("h2");
-    let text = document.createTextNode(`Perfect! You're going to love ${answer} !`);
+    let text = document.createTextNode(`Perfect! You're going to love ${answer}!`);
     heEle.append(text);
     divEle.append(heEle);
     mainDiv.append(divEle);
     console.log(answer); 
+}
+
+function createAllOptionsNode(){
+    console.log("From function create all options node")
+    // 2, 3 and current_choice
+    for (i=2; i<userChoices.length; i++){
+        let divEle = 
+        console.log("The user has chosen:", userChoices[i])
+    }
 }
 
 function deleteDivs(current_id){
