@@ -34,8 +34,7 @@ function processChoice(id){
     } else {
         localStorage.setItem("choice", "nothing");
     }
-    
-    //console.log("id:", id)
+
     if(id == "result"){
         showAnswers();
     } else if (id == "initial_choice"){
@@ -47,6 +46,7 @@ function processChoice(id){
 }
 
 function createSelect(id, options){
+    formHide();
     let which_choice = id; // first_choice, second_choice, third_choice
     
     let optionDiv = document.getElementById("options_div"); //the child will be appended to this div
@@ -109,25 +109,42 @@ function createSelect(id, options){
 function showAnswers(){
     createAllOptionsNode()
     let choice = localStorage.getItem("choice");
-    let answer = info["result"]["answers"][choice];
-    let mainDiv = document.getElementById("options_div");
-    let divEle = document.createElement("div");
-    divEle.setAttribute("id", info["result"].choice_number)
-    let heEle = document.createElement("h2");
+    let answer = info["result"]["answers"][choice][0];
+    let mainDiv = document.getElementById(info["result"].choice_number);
+    let linkEle = document.createElement("a");
     let text = document.createTextNode(`Perfect! You're going to love ${answer}!`);
-    heEle.append(text);
-    divEle.append(heEle);
-    mainDiv.append(divEle);
+    linkEle.append(text);
+    linkEle.setAttribute("href",info["result"]["answers"][choice][1])
+    //linkEle.title = `Perfect! You're going to love ${answer}!`;
+    //linkEle.href = info["result"]["answers"][choice][1];
+    mainDiv.append(linkEle);
     console.log(answer); 
 }
 
 function createAllOptionsNode(){
     console.log("From function create all options node")
-    // 2, 3 and current_choice
+    let mainDiv = document.getElementById("options_div");
+    let choice = localStorage.getItem("choice");
+    let hEle = document.createElement("h3");
+    let text = document.createTextNode(`Your choices are: `);
+    hEle.append(text);
+    
+    let divEle = document.createElement("div");
+    divEle.setAttribute("id", info["result"].choice_number);
+    divEle.append(hEle)
     for (i=2; i<userChoices.length; i++){
-        let divEle = 
+        let hEle = document.createElement("h3");
+        let text = document.createTextNode(userChoices[i]);
+        hEle.append(text);
+        divEle.append(hEle)
         console.log("The user has chosen:", userChoices[i])
     }
+    let lastChoice = document.createElement("h3");
+    let textChoice = document.createTextNode(choice);
+    lastChoice.append(textChoice);
+    divEle.append(lastChoice)
+    mainDiv.append(divEle)
+    formShow();
 }
 
 function deleteDivs(current_id){
@@ -139,4 +156,14 @@ function deleteDivs(current_id){
             div.remove();
         }
     })
+}
+
+function formHide(){
+    let form = document.getElementById("newsletter");
+    form.style.display = "none"; 
+}
+
+function formShow(){
+    let form = document.getElementById("newsletter");
+    form.style.display = "block";
 }

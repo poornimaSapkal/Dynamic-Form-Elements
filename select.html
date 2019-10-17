@@ -13,5 +13,23 @@
         <div id="options_div"></div>
         <div id="heart_div"><h2>❤</h2></div> 
     <script src="select.js"></script>
+    <div class="container">
+        <form style="display: none;" id="newsletter"  action="">
+            <h3>Sign up to receive newsletters!</h3>
+            <ul>
+                <li>
+                    <label id="name" for="name">Name:</label>
+                    <input class="changeStyle" type="text" name="" id="name" placeholder="John Doe">
+                </li>
+                <li>
+                    <label for="email_id">Email ID:</label>
+                    <input class="changeStyle" oninvalid="showEmailError();" id="person_email" type="email" name="email_id" placeholder="john.doe@gmail.com" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$">
+                </li>
+                <li>
+                    <button  onclick=" validate();"  class="submit" type="submit">Submit</button>
+                </li>
+            </ul>
+        </form>
+    </div>
 </body>
 </html>
