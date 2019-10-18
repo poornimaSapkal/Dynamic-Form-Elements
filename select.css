@@ -60,6 +60,8 @@ select {
     height: 60px;
     font-size: 60px;
     color: #e2e2e2;
+    transition: opacity 1s ease-in-out;
+    opacity: 1;
 }
 
 form {
@@ -67,9 +69,8 @@ form {
     position: fixed;
     bottom: 0;
     left: 0;
-    border-style: solid;
-    border-width: 5px;
-    border: #e2e2e2;
+    border: 1px solid #e2e2e2;
+    padding-right: 20px;
 }
 
 ul{
@@ -107,4 +108,44 @@ button {
 
 form h3 {
     color: black;
+}
+
+a {
+    font-family: 'Source Code Pro', monospace;
+    color: #e2e2e2;
+    font-size: 25px;
+    text-align: center;
+    display: inline-block;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+
+}
+/* 
+.container form {
+    transition: opacity 1s ease-in;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+}
+container form.active {
+    opacity: 1;
+    height: auto;
+} */
+
+.container form {
+    -webkit-animation: fadein 4s linear 1 forwards;
+    animation: fadein 4s linear 1 forwards;
+}
+
+@-webkit-keyframes fadein {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadein {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 1; }
 }

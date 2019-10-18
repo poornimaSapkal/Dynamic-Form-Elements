@@ -3,7 +3,7 @@ let userChoices = [];
 let info;
 
 function fetchData(){   
-    http.open("GET", "data2.json", true);
+    http.open("GET", "data1.json", true);
     http.setRequestHeader('Accept', 'application/json');
     http.onreadystatechange = handleHttpResponse;
     http.send(null);
@@ -112,11 +112,18 @@ function showAnswers(){
     let answer = info["result"]["answers"][choice][0];
     let mainDiv = document.getElementById(info["result"].choice_number);
     let linkEle = document.createElement("a");
-    let text = document.createTextNode(`Perfect! You're going to love ${answer}!`);
+    let hEle = document.createElement("h2");
+    let headerText = document.createTextNode(`You're going to love`);
+    hEle.append(headerText);
+
+    let text = document.createTextNode(`${answer}`);
+
     linkEle.append(text);
+
     linkEle.setAttribute("href",info["result"]["answers"][choice][1])
     //linkEle.title = `Perfect! You're going to love ${answer}!`;
-    //linkEle.href = info["result"]["answers"][choice][1];
+    linkEle.href = info["result"]["answers"][choice][1];
+    mainDiv.append(hEle);
     mainDiv.append(linkEle);
     console.log(answer); 
 }
@@ -126,23 +133,20 @@ function createAllOptionsNode(){
     let mainDiv = document.getElementById("options_div");
     let choice = localStorage.getItem("choice");
     let hEle = document.createElement("h3");
-    let text = document.createTextNode(`Your choices are: `);
-    hEle.append(text);
-    
+    //let text = document.createTextNode(`Your choices are: `);
+    //hEle.append(text);
+    let answerText = "";
     let divEle = document.createElement("div");
     divEle.setAttribute("id", info["result"].choice_number);
-    divEle.append(hEle)
+    //divEle.append(hEle)
     for (i=2; i<userChoices.length; i++){
-        let hEle = document.createElement("h3");
-        let text = document.createTextNode(userChoices[i]);
-        hEle.append(text);
-        divEle.append(hEle)
-        console.log("The user has chosen:", userChoices[i])
+        answerText = answerText + userChoices[i] +" "; 
     }
-    let lastChoice = document.createElement("h3");
-    let textChoice = document.createTextNode(choice);
-    lastChoice.append(textChoice);
-    divEle.append(lastChoice)
+    answerText = answerText + "and "+choice + ", eh?";
+    let answerTextNode = document.createTextNode(answerText);
+    hEle.setAttribute("id", "choices");
+    hEle.append(answerTextNode);
+    divEle.append(hEle)
     mainDiv.append(divEle)
     formShow();
 }

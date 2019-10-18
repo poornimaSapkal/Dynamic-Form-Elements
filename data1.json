@@ -1,0 +1,41 @@
+{
+    "initial_choice" : {
+        "options" : ["Europe", "Asia"],
+        "next_div" : "first_choice",
+        "choice_number":1
+    },
+    "first_choice":{
+        "options":{
+            "Europe" : [ "Old Cities","Coastal Cities"],
+            "Asia" : ["Pandas","Elephants"]
+        },
+        "choice_number":2,
+        "next_div": "second_choice"
+    },
+    "second_choice":{
+        "options":{
+            "Pandas" : ["Lanterns","Oil Lamps"],
+            "Elephants" : ["Dumplings","Curry"],
+            "Old Cities" : ["Wine", "Beer", "Whiskey"],
+            "Coastal Cities" : ["Volcanoes", "Waterfalls"]
+        },
+        "choice_number":3,
+        "next_div": "result"
+    },
+
+    "result":{
+        "answers": {
+            "Wine":["French & Critical Studies in Paris","https://rit-horizons.symplicity.com/index.php?s=programs&mode=form&id=a61b3ee4ce0279e53362bf7ad38f9985"],
+            "Beer": ["Berlin - Language and Area Studies","https://rit-horizons.symplicity.com/index.php?s=programs&mode=form&id=d453e8e625ca6dff2ca597ba8e52725d"],
+            "Whiskey": ["Scottish History","https://rit-horizons.symplicity.com/index.php?s=programs&mode=form&id=9f6e3add49164fc5438d75f214e179ef"],
+            "Volcanoes": ["Arcadia in Greece","https://rit-horizons.symplicity.com/index.php?s=programs&mode=form&id=cfccb11a5223e7bd103220e5b2e8877b"],
+            "Waterfalls": ["RIT Croatia - Direct Enroll","https://rit-horizons.symplicity.com/index.php?s=programs&mode=form&id=3da6eb4bcb738a1dc2eeefe4fcbaf5aa"],
+            "Lanterns": ["Advanced Chinese Studies","https://rit-horizons.symplicity.com/index.php?s=programs&mode=form&id=1ceb3fe0ad1a713ef261e88b0a24d296"],
+            "Curry": ["Summer Global Internship in Mumbai","https://rit-horizons.symplicity.com/index.php?s=programs&mode=form&id=2a5b3be9f1cb001ca3d0aa2646aaa7c9"],
+            "Dumplings":["Summer in Thailand","https://rit-horizons.symplicity.com/index.php?s=programs&mode=form&id=fa2d87c960669afe2906b90a29b9f514"],
+            "Oil Lamps": ["Semester in South Korea – Sogang University","https://rit-horizons.symplicity.com/index.php?s=programs&mode=form&id=772c176300a3c7ef582058d9abbfd951"]
+        },
+        "choice_number":4     
+    }
+    
+}
