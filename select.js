@@ -2,8 +2,9 @@ let http = new XMLHttpRequest();
 let userChoices = [];
 let info;
 
-function fetchData(){   
-    http.open("GET", "data1.json", true);
+function fetchData(){  
+    let dataset = localStorage.getItem("dataset");
+    http.open("GET", dataset, true);
     http.setRequestHeader('Accept', 'application/json');
     http.onreadystatechange = handleHttpResponse;
     http.send(null);
@@ -16,12 +17,22 @@ function handleHttpResponse(){
     }
 }
 
+function toggle(){
+    if(localStorage.getItem("dataset") == "data1.json"){
+        localStorage.setItem("dataset", "data2.json");
+    } else {
+        localStorage.setItem("dataset", "data1.json");
+    }
+    fetchData();
+}
+
 function createFirstDiv(){
     setTimeout(function(){
         processChoice("initial_choice")
     },100);
     
 }
+
 
 function processChoice(id){   
     deleteDivs(info[id].choice_number);

@@ -149,3 +149,15 @@ container form.active {
   50% { opacity: 1; }
   100% { opacity: 1; }
 }
+
+#toggle_div h3:hover{
+    color: black;
+}
+
+#toggle_div {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline;
+    padding-right: 10px;
+}
