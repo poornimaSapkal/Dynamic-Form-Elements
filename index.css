@@ -9,6 +9,12 @@ body {
     display: inline-block;
 }
 
+span{  
+    display: inline;
+}
+
+
+
 
 h1 {
     text-align: center;
@@ -144,6 +150,11 @@ container form.active {
     animation: fadein 4s linear 1 forwards;
 }
 
+h1 {
+    -webkit-animation: fadein 4s linear 1 forwards;
+    animation: fadein 4s linear 1 forwards;
+}
+
 @-webkit-keyframes fadein {
   0% { opacity: 0; }
   50% { opacity: 1; }
@@ -156,11 +167,11 @@ container form.active {
   100% { opacity: 1; }
 }
 
-#toggle_div h3:hover{
+#toggle_message:hover{
     color: black;
 }
 
-#toggle_div {
+#toggle_div{
     position: absolute;
     right: 0;
     top: 0;

@@ -40,6 +40,7 @@ function createFirstDiv(){
 }
 
 
+
 function processChoice(id){   
     deleteDivs(info[id].choice_number);
     let which_choice = id // first_choice, second_choice, third_choice
