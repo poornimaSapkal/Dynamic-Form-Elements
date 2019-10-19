@@ -103,6 +103,11 @@ form ul li label{
     width: 240px;
 }
  
+#display_message{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
 
 button {
     margin-top: 20px;
@@ -118,8 +123,7 @@ form h3 {
 }
 
 a {
-    font-family: 'Source Code Pro', monospace;
-    
+    font-family: 'Source Code Pro', monospace;  
     color: black;
     font-size: 25px;
     text-align: center;
