@@ -6,7 +6,7 @@ let info;
  * This is a function which fetches the json data and calls the http response handler
  */
 function fetchData() {
-    let url = "https://raw.githubusercontent.com/poornimaSapkal/Dynamic-Form-Elements/master/"
+    let url = "http://serenity.ist.rit.edu/~ps5067/dynamicform/"
     let dataset = localStorage.getItem("dataset");
     if (dataset) {
         http.open("GET", dataset, true);
