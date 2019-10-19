@@ -52,7 +52,7 @@ function toggle() {
 function createFirstDiv() {
     setTimeout(function () {
         processChoice("initial_choice")
-    }, 100);
+    }, 200);
 
 }
 
@@ -114,45 +114,45 @@ function createSelect(id, options) {
     userChoices[info[id].choice_number] = (choice);
 
     let question = "Do you prefer ";
-    options.forEach(function (value) {
-        let optionEle = document.createElement("option")
-        let optionTextNode = document.createTextNode(value);
-        optionEle.setAttribute("value", value);
-        optionEle.append(optionTextNode);
-        selectEle.appendChild(optionEle);
-        question = question + value + " or ";
 
-    });
-    // create a label and append the text node
+    for(i=0; i<options.length; i++){
+        let optionEle = document.createElement("option")
+        let optionTextNode = document.createTextNode(options[i]);
+        optionEle.setAttribute("value", options[i]);
+        optionEle.appendChild(optionTextNode);
+        selectEle.appendChild(optionEle);
+        question = question + options[i] + " or ";
+    }
+
 
     let label = document.createElement("label");
     label.setAttribute("for", info[id].next_div);
 
     let questionNode = document.createTextNode((question.slice(0, question.length - 4) + "?"));
-    label.append(questionNode);
+    label.appendChild(questionNode);
 
 
     let optionEle = document.createElement("option")
     let optionTextNode = document.createTextNode("Make a choice");
     optionEle.setAttribute("selected", "selected");
     optionEle.setAttribute("disabled", "disabled");
-    optionEle.append(optionTextNode);
+    optionEle.appendChild(optionTextNode);
     selectEle.appendChild(optionEle);
     selectEle.addEventListener("change", function () {
         processChoice(info[id].next_div);
     })
-    divEle.append(label);
+    divEle.appendChild(label);
 
     let dotsHeader = document.createElement("h2");
     let dots = document.createTextNode("...");
-    dotsHeader.append(dots);
+    dotsHeader.appendChild(dots);
 
     //add br 
     let breakEle = document.createElement("br");
-    divEle.append(breakEle);
+    divEle.appendChild(breakEle);
 
-    divEle.append(selectEle);
-    divEle.append(dotsHeader);
+    divEle.appendChild(selectEle);
+    divEle.appendChild(dotsHeader);
     optionDiv.appendChild(divEle);
 
 }
@@ -170,15 +170,15 @@ function showAnswers() {
     let mainDiv = document.getElementById(info["result"].choice_number);
     let linkEle = document.createElement("a");
     let hEle = document.createElement("h2");
-    let headerText = document.createTextNode(`You're going to love`);
-    hEle.append(headerText);
+    let headerText = document.createTextNode("You're going to love");
+    hEle.appendChild(headerText);
 
-    let text = document.createTextNode(`${answer}`);
-    linkEle.append(text);
+    let text = document.createTextNode(answer);
+    linkEle.appendChild(text);
     linkEle.setAttribute("href", info["result"]["answers"][choice][1])
     linkEle.href = info["result"]["answers"][choice][1];
-    mainDiv.append(hEle);
-    mainDiv.append(linkEle);
+    mainDiv.appendChild(hEle);
+    mainDiv.appendChild(linkEle);
 }
 /**
  * This function displays all the choices that the user had made to get to a particular answer. 
@@ -200,9 +200,9 @@ function createAllOptionsNode() {
     answerText = answerText + "and " + choice + ", eh?";
     let answerTextNode = document.createTextNode(answerText);
     hEle.setAttribute("id", "choices");
-    hEle.append(answerTextNode);
-    divEle.append(hEle)
-    mainDiv.append(divEle)
+    hEle.appendChild(answerTextNode);
+    divEle.appendChild(hEle)
+    mainDiv.appendChild(divEle)
     formShow();
 }
 /**
@@ -215,12 +215,14 @@ function createAllOptionsNode() {
 function deleteDivs(current_id) {
     //if id is greater than id that is passed delete it 
     let allDivs = document.querySelectorAll("div");
-    allDivs.forEach(function (div) {
-        let id = div.getAttribute("id")
-        if (parseInt(id) >= current_id) {
-            div.remove();
-        }
-    })
+
+    for(i=0; i< allDivs.length; i++){
+       let id = allDivs[i].getAttribute("id")
+       if(parseInt(id) >= current_id){
+           allDivs[i].parentNode.removeChild(allDivs[i])
+       } 
+    }
+
 }
 
 /**
